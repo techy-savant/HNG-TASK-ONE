@@ -16,11 +16,12 @@ weekDay.textContent = new Intl.DateTimeFormat(locale, options).format(date); //D
 
 function getCurrentTime() {
     const date = new Date();
-    const hours = date.getUTCHours();
-    const minutes = date.getUTCMinutes();
-    const seconds = date.getUTCSeconds();
+    const hours = String(date.getUTCHours()).padStart(2,0);
+    const minutes = String(date.getUTCMinutes()).padStart(2,0);
+    const seconds = String(date.getUTCSeconds()).padStart(2,0);
+    const milliseconds = String(date.getUTCMilliseconds()).padStart(3,0);
   
-    const formattedTime = `${hours}:${minutes}:${seconds}`;
+    const formattedTime = `${hours}:${minutes}:${seconds}.${milliseconds}`;
   
     weekTime.textContent = formattedTime;
 }
